@@ -1,0 +1,1 @@
+export { type ShopifyProductFieldUnion, ShopifyProductFieldEnum } from './shopifyProductFieldEnum'
