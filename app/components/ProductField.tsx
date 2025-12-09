@@ -1,4 +1,5 @@
-import { type ShopifyProductFieldUnion, ShopifyProductFieldEnum } from '../enums';
+import { type ShopifyProductFieldUnion } from '../enums';
+import { getProductFieldHTML } from '../utils';
 import { ShopifyContextBlock } from './ShopifyContextBlock';
 
 type ProductFieldProps = {
@@ -7,28 +8,7 @@ type ProductFieldProps = {
 };
 
 export function ProductField({ field, handle }: ProductFieldProps) {
-  let shopifyHtml: string | null = null;
-  switch (field) {
-    case ShopifyProductFieldEnum.Title: {
-      shopifyHtml = `<shopify-data query="product.title"></shopify-data>`;
-      break;
-    }
-    case ShopifyProductFieldEnum.Description: {
-      shopifyHtml = `<shopify-data query="product.description"></shopify-data>`;
-      break;
-    }
-    case ShopifyProductFieldEnum.Price: {
-      shopifyHtml = `<shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money>`;
-      break;
-    }
-    case ShopifyProductFieldEnum.Image: {
-      shopifyHtml = `<shopify-media query="product.selectedOrFirstAvailableVariant.image"></shopify-media>`;
-      break;
-    }
-    default: {
-      shopifyHtml = null;
-    }
-  }
+  const shopifyHtml = getProductFieldHTML(field);
 
   if (!shopifyHtml) {
     return null;

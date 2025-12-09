@@ -5,9 +5,9 @@ import { useEffect, useRef } from 'react';
 type ShopifyContextType = 'product' | 'collection' | 'cart';
 
 interface ShopifyContextBlockProps {
-  type: ShopifyContextType;
   handle?: string;
   templateHTML: string;
+  type: ShopifyContextType;
 }
 
 // Client-only insertion; Shopify components will manage their own Shadow DOM.
@@ -21,6 +21,7 @@ export function ShopifyContextBlock({ type, handle, templateHTML }: ShopifyConte
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
     el.innerHTML = `
       <shopify-context type="${type}" ${handle ? `handle="${handle}"` : ''}>
         <template>
