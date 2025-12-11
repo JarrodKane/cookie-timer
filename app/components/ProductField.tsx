@@ -1,6 +1,6 @@
 import { type ShopifyProductFieldUnion } from '../enums';
 import { getProductFieldHTML } from '../utils';
-import { ShopifyContextBlock } from './ShopifyContextBlock';
+import { ShopifyContextBlock } from './shopify/ShopifyContextBlock';
 
 type ProductFieldProps = {
   field: ShopifyProductFieldUnion;

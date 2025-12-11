@@ -2,7 +2,7 @@
 
 import { ShopifyCollectionTimesUnion, ShopifyProductFieldEnum } from '@app/enums';
 import { getProductFieldHTML } from '../utils';
-import { ShopifyContextList } from './ShopifyContextList';
+import { ShopifyContextList } from './shopify/ShopifyContextList';
 
 export function ProductList({ collection }: { collection: ShopifyCollectionTimesUnion }) {
   const title = getProductFieldHTML(ShopifyProductFieldEnum.Title);
